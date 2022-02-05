@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-import { getShopList } from './src/lib/firebase'
-import { Shop } from './src/types/shop'
+import { getShopList } from '@lib/firebase'
+import { Shop } from '@types'
 
 export default function App() {
   const [shopList, setShopList] = useState<Shop[]>([])

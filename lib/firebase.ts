@@ -1,7 +1,7 @@
 import fb from 'firebase/app'
 import 'firebase/firestore'
 
-import { Shop } from '../types/shop'
+import { Shop } from '@types'
 
 // 画面初期化
 const firebaseConfig = {
