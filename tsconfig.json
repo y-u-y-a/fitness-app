@@ -1,11 +1,12 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true,
-    "baseUrl": ".",
-    "paths": {
-      "@*": ["./src/*"]
-    }
+    "strict": true
+    // TODO: パスエイリアス設定
+    // "baseUrl": ".",
+    // "paths": {
+    //   "$*": ["./*"]
+    // }
   },
   "exclude": ["node_modules", ".expo"]
 }
