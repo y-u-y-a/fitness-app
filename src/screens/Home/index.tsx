@@ -1,24 +1,37 @@
 import React from 'react'
-import { FlatList, Text, View } from 'react-native'
+import { FlatList, Text, TouchableOpacity, View } from 'react-native'
+import { StackNavigationProp } from '@react-navigation/stack'
 
+import { RootStackParamList } from '../../types'
 import { useQueryRocketList } from '../../hooks/useQuery'
-import styles from './style'
+import style from './style'
 
-export const HomeScreen = (): JSX.Element => {
+type Props = {
+  navigation: StackNavigationProp<RootStackParamList, 'Home'>
+}
+
+export const HomeScreen: React.FC<Props> = ({ navigation }): JSX.Element => {
   // TODO: statusで表示の切替
-  const { status, data: rocketList } = useQueryRocketList()
+  const { status, data } = useQueryRocketList()
   console.log('success')
+  //
+  const menuList = [
+    {
+      name: 'Profile',
+      onPress: () => navigation.navigate('Profile'),
+    },
+  ]
   //
   return (
     <View>
       <FlatList
-        data={rocketList}
+        data={menuList}
         renderItem={({ item }) => (
-          <View style={styles.listItem}>
-            <Text style={styles.text}>{item.name}</Text>
-          </View>
+          <TouchableOpacity onPress={item.onPress} style={style.listItem}>
+            <Text style={style.text}>{item.name}</Text>
+          </TouchableOpacity>
         )}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.name}
       />
     </View>
   )

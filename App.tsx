@@ -1,14 +1,14 @@
 import React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-import { HomeScreen } from './src/screens/Home'
+import { AppNavigator } from './src/navigations/AppNavigator'
 
 export default () => {
   const queryClient: QueryClient = new QueryClient()
   //
   return (
     <QueryClientProvider client={queryClient}>
-      <HomeScreen />
+      <AppNavigator />
     </QueryClientProvider>
   )
 }

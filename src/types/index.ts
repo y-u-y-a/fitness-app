@@ -1,3 +1,8 @@
+export type RootStackParamList = {
+  Home: undefined
+  Profile: undefined
+}
+
 export interface Shop {
   name: string
   place: string
