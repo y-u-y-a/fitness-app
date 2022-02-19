@@ -12,8 +12,7 @@ type Props = {
 
 export const HomeScreen: React.FC<Props> = ({ navigation }): JSX.Element => {
   // TODO: statusで表示の切替
-  const { status, data } = useQueryRocketList()
-  console.log('success')
+  const { status, data } = useQueryRocketList() // Call API.
   //
   const menuList = [
     {
