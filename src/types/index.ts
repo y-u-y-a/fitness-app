@@ -1,6 +1,15 @@
-export type RootStackParamList = {
+export type RootStackList = {
+  Tab: undefined
   Home: undefined
   Profile: undefined
+  Settings: undefined
+}
+
+export type ScreenList = {
+  Home?: undefined
+  Training?: undefined
+  Calender?: undefined
+  Settings?: undefined
 }
 
 export interface Shop {

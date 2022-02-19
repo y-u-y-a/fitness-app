@@ -10,6 +10,7 @@ type Props = {
   navigation: StackNavigationProp<RootStackParamList, 'Home'>
 }
 
+// From HomeStackNavigator.
 export const HomeScreen: React.FC<Props> = ({ navigation }): JSX.Element => {
   // TODO: statusで表示の切替
   const { status, data } = useQueryRocketList() // Call API.
