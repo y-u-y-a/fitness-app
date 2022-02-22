@@ -2,12 +2,12 @@ import React from 'react'
 import { FlatList, Text, TouchableOpacity, View } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
 
-import { RootStackParamList } from '../../types'
+import { HomeStackList } from '../../types'
 import { useQueryRocketList } from '../../hooks/useQuery'
 import style from './style'
 
 type Props = {
-  navigation: StackNavigationProp<RootStackParamList, 'Home'>
+  navigation: StackNavigationProp<HomeStackList, 'Home'>
 }
 
 // From HomeStackNavigator.

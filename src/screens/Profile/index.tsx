@@ -2,12 +2,12 @@ import { StackNavigationProp } from '@react-navigation/stack'
 import React from 'react'
 import { Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { RootStackParamList } from '../../types'
+import { HomeStackList } from '../../types'
 
 import style from './style'
 
 type Props = {
-  navigation: StackNavigationProp<RootStackParamList, 'Profile'>
+  navigation: StackNavigationProp<HomeStackList, 'Profile'>
 }
 
 export const ProfileScreen: React.FC<Props> = ({ navigation }): JSX.Element => {

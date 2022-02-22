@@ -1,20 +1,16 @@
-export type RootStackList = {
-  Tab: undefined
-  Home: undefined
-  Profile: undefined
-  Settings: undefined
-}
-
-export type ScreenList = {
+export type TabNavigatorList = {
   Home?: undefined
   Training?: undefined
   Calender?: undefined
   Settings?: undefined
+  Add?: undefined
 }
 
-export interface Shop {
-  name: string
-  place: string
+export type HomeStackList = {
+  Tab: undefined
+  Home: undefined
+  Profile: undefined
+  Settings: undefined
 }
 
 export interface Rocket {

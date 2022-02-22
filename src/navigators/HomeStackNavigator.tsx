@@ -1,12 +1,12 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import { RootStackList } from '../types'
+import { HomeStackList } from '../types'
 // import { MainTabNavigator } from './MainTabNavigator'
 import { HomeScreen } from '../screens/Home'
 import { ProfileScreen } from '../screens/Profile'
 
-const Stack = createStackNavigator<RootStackList>()
+const Stack = createStackNavigator<HomeStackList>()
 
 export const HomeStackNavigator = () => {
   return (
