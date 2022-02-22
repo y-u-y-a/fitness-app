@@ -38,7 +38,7 @@ export const MainTabNavigator = () => {
         component={SettingsScreen}
         options={{
           tabBarLabel: '',
-          tabBarIcon: () => <MaterialIcons name="add-circle" size={56} color={themes.colors.white} style={{ position: 'absolute', top: 0 }} />,
+          tabBarIcon: () => <MaterialIcons name="add-circle" size={48} color={themes.colors.white} style={{ position: 'absolute', top: 0 }} />,
         }}
       />
       <Tab.Screen
