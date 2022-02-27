@@ -2,9 +2,6 @@ import { StyleSheet } from 'react-native'
 import themes from '../../themes'
 
 export default StyleSheet.create({
-  body: {
-    backgroundColor: themes.colors.white,
-  },
   trainingWrapper: {
     marginHorizontal: 16,
     marginBottom: 16,

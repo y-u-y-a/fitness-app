@@ -13,6 +13,16 @@ export type HomeStackList = {
   Settings: undefined
 }
 
+export interface Training {
+  id: number
+  name: string
+  repetitionMax: number
+  times: number
+  weight: number
+  latestTimes: number
+  latestWeight: number
+}
+
 export interface Rocket {
   id: string
   name: string
