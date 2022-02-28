@@ -16,7 +16,7 @@ interface Props {
 const Presenter: React.FC<Props> = ({ todayTraining }) => {
   return (
     // TODO: Layoutの切り出し
-    <ScrollView style={{ backgroundColor: 'fff' }}>
+    <ScrollView style={{ backgroundColor: '#fff' }}>
       {/* カレンダー */}
       <Calendar style={{ marginBottom: 20 }} />
       {/* トレーニング一覧 */}
