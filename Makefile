@@ -1,5 +1,2 @@
-clean:
+setup:
 	rm -rf node_modules && yarn install
-
-dev:
-	yarn dev

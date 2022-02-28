@@ -2,9 +2,20 @@
 
 - Node 14.15.0
 - React Native 0.6
+- Expo 15.14.0
 
 ### インストール
 
+#### Node
+
 ```sh:
+$ nodenv install 14.17.0
+$ nodenv local 14.17.0
+```
+
+#### Library
+
+```sh:
+$ npm install -g yarn expo-cli
 $ yarn add react-query graphql graphql-request react-query-devtools
 ```
