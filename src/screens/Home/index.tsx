@@ -17,11 +17,13 @@ export const HomeScreen: React.FC<Props> = ({ navigation }) => {
   }
   const newsList = [
     {
+      date: '2/14',
       description: 'お知らせテスト1111',
       onPress: () => navigation.navigate('WebView', { uri: 'https://github.com/' }),
     },
     {
-      description: 'お知らせテスト2222',
+      date: '1/1',
+      description: '年末年始メンテナンスのお知らせ',
       onPress: () => navigation.navigate('WebView', { uri: 'https://github.com/y-u-y-a' }),
     },
   ]

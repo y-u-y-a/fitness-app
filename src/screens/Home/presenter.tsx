@@ -11,7 +11,7 @@ interface Props {
     title: string
     menu: Training[]
   }
-  newsList: { description: string; onPress: () => void }[]
+  newsList: { date: string; description: string; onPress: () => void }[]
 }
 
 const Presenter: React.FC<Props> = ({ todayTraining, newsList }) => {
@@ -46,10 +46,9 @@ const Presenter: React.FC<Props> = ({ todayTraining, newsList }) => {
       {/* お知らせ一覧 */}
       <View style={style.newsContainer}>
         {newsList.map((item, index) => (
-          <TouchableOpacity key={index}>
-            <Text onPress={item.onPress} style={style.newsItem}>
-              {item.description}
-            </Text>
+          <TouchableOpacity onPress={item.onPress} style={style.newsItem} key={index}>
+            <Text style={style.newsItemTextDate}>{item.date}</Text>
+            <Text style={style.newsItemTextDesc}>{item.description}</Text>
           </TouchableOpacity>
         ))}
       </View>

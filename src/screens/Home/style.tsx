@@ -24,12 +24,23 @@ export default StyleSheet.create({
     borderRadius: 8,
   },
   newsContainer: {
-    backgroundColor: themes.colors.lightBlue,
     marginBottom: 40,
   },
   newsItem: {
+    flex: 1,
+    flexDirection: 'row',
+    marginBottom: 1,
     paddingVertical: 12,
     paddingHorizontal: 16,
+    backgroundColor: themes.colors.lightBlue,
+  },
+  newsItemTextDate: {
+    flex: 1,
+    color: themes.colors.linkBlue,
+  },
+  newsItemTextDesc: {
+    flex: 11,
+    marginLeft: 8,
     color: themes.colors.linkBlue,
   },
   // Text
