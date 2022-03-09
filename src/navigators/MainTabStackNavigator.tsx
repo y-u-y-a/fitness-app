@@ -7,7 +7,7 @@ import { TabNavigatorList } from '../types'
 import { HomeScreen } from '../screens/Home'
 import { SettingsScreen } from '../screens/Settings'
 
-export const MainTabNavigator = () => {
+export const MainTabStackNavigator = () => {
   const Tab = createBottomTabNavigator<TabNavigatorList>()
   const screenOptions = {
     // Bottom Bar
