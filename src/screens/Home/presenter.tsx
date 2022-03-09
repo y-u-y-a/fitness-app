@@ -11,9 +11,10 @@ interface Props {
     title: string
     menu: Training[]
   }
+  newsList: { description: string; onPress: () => void }[]
 }
 
-const Presenter: React.FC<Props> = ({ todayTraining }) => {
+const Presenter: React.FC<Props> = ({ todayTraining, newsList }) => {
   return (
     // TODO: Layoutの切り出し
     <ScrollView style={{ backgroundColor: '#fff' }}>
@@ -41,6 +42,16 @@ const Presenter: React.FC<Props> = ({ todayTraining }) => {
             )
           })}
         </View>
+      </View>
+      {/* お知らせ一覧 */}
+      <View style={style.newsContainer}>
+        {newsList.map((item, index) => (
+          <TouchableOpacity key={index}>
+            <Text onPress={item.onPress} style={style.newsItem}>
+              {item.description}
+            </Text>
+          </TouchableOpacity>
+        ))}
       </View>
     </ScrollView>
   )

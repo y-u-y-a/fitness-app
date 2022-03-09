@@ -3,12 +3,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialIcons } from '@expo/vector-icons'
 
 import themes from '../themes'
-import { TabNavigatorList } from '../types'
+import { MainTabStackList } from '../types'
 import { HomeScreen } from '../screens/Home'
 import { SettingsScreen } from '../screens/Settings'
 
 export const MainTabStackNavigator = () => {
-  const Tab = createBottomTabNavigator<TabNavigatorList>()
+  const Tab = createBottomTabNavigator<MainTabStackList>()
   const screenOptions = {
     // Bottom Bar
     tabBarActiveTintColor: themes.colors.blue,

@@ -2,15 +2,15 @@ import { StackNavigationProp } from '@react-navigation/stack'
 import React from 'react'
 import { Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { RootStackParamList } from '../../types'
+import { HomeStackList } from '../../types/index.d'
 
 import style from './style'
 
-type Props = {
-  navigation: StackNavigationProp<RootStackParamList, 'Settings'>
+interface Props {
+  navigation: StackNavigationProp<HomeStackList, 'Settings'>
 }
 
-export const SettingsScreen: React.FC<Props> = ({ navigation }): JSX.Element => {
+export const SettingsScreen: React.FC<Props> = ({ navigation }) => {
   const onPress = () => navigation.goBack()
   //
   return (

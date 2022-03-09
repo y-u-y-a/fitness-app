@@ -1,18 +1,3 @@
-export type TabNavigatorList = {
-  Home?: undefined
-  Training?: undefined
-  Calender?: undefined
-  Settings?: undefined
-  Add?: undefined
-}
-
-export type HomeStackList = {
-  Tab: undefined
-  Home: undefined
-  Profile: undefined
-  Settings: undefined
-}
-
 export interface Training {
   id: number
   name: string

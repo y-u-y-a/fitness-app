@@ -23,10 +23,20 @@ export default StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 8,
   },
+  newsContainer: {
+    backgroundColor: themes.colors.lightBlue,
+    marginBottom: 40,
+  },
+  newsItem: {
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    color: themes.colors.linkBlue,
+  },
+  // Text
   text: {
     color: themes.colors.dark,
   },
-  // common
+  // Common
   widthFull: {
     width: '100%',
   },
