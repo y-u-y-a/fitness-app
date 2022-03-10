@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity, Alert } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { MaterialIcons } from '@expo/vector-icons'
 
@@ -26,7 +26,7 @@ export const screenOptions = ({ navigation }: Props) => {
       </TouchableOpacity>
     ),
     headerRight: () => (
-      <TouchableOpacity onPress={() => {}} style={{ paddingRight: 20 }}>
+      <TouchableOpacity onPress={() => Alert.alert('Coming soon ...')} style={{ paddingRight: 20 }}>
         <MaterialIcons name="account-circle" color={themes.colors.white} size={24} />
       </TouchableOpacity>
     ),

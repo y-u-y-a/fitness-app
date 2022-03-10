@@ -19,7 +19,6 @@ export const HomeScreen: React.FC<Props> = ({ navigation }) => {
   }
 
   const newsList = useQueryNewsList().map((item) => {
-    console.log(item.uri)
     return {
       title: item.title,
       date: item.date,
