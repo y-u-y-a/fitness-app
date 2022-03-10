@@ -23,5 +23,9 @@ $ yarn add react-query graphql graphql-request react-query-devtools
 ### Documents
 
 - react-native-dotenv
+
   - URL：https://github.com/goatandsheep/react-native-dotenv
   - メモ：`.env`と`./src/types/env.d.ts`に環境変数を定義する
+
+- react-native-tab-view
+  - URL：https://github.com/satya164/react-native-tab-view

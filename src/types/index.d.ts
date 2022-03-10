@@ -6,6 +6,17 @@ export interface Training {
   weight: number
   latestTimes: number
   latestWeight: number
+  category: string
+}
+
+export interface TrainingMenu {
+  name: string
+  trainingList: Training[]
+}
+
+export interface TrainingCategory {
+  name: string
+  trainingList: Training[]
 }
 
 export interface News {

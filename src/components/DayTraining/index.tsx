@@ -18,9 +18,9 @@ export const DayTraining: React.FC<Props> = ({ dayTraining }) => {
         <Text>{dayTraining.title}</Text>
       </View>
       <View>
-        {dayTraining.menu.map((item) => {
+        {dayTraining.menu.map((item, i) => {
           return (
-            <TouchableOpacity onPress={() => console.log(item.name)} style={style.item} key={item.id}>
+            <TouchableOpacity onPress={() => console.log(item.name)} style={style.item} key={i}>
               <View style={[style.widthFull, style.flex, style.spaceBetween]}>
                 <Text style={style.text}>{item.name}</Text>
                 <Text style={style.text}>RM算出</Text>

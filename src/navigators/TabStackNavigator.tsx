@@ -6,6 +6,7 @@ import themes from '../themes'
 import { TabStackList } from '../types/navigator'
 import { screenOptions } from './_screenOptions'
 import { HomeScreen } from '../screens/Home'
+import { TrainingScreen } from '../screens/Training'
 import { SettingsScreen } from '../screens/Settings'
 
 export const TabStackNavigator = () => {
@@ -28,7 +29,7 @@ export const TabStackNavigator = () => {
       />
       <Tab.Screen
         name="Training"
-        component={SettingsScreen}
+        component={TrainingScreen}
         options={{
           headerTitle: 'トレーニング',
           tabBarLabel: 'トレーニング',

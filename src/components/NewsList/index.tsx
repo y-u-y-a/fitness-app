@@ -10,8 +10,8 @@ interface Props {
 export const NewsList: React.FC<Props> = ({ newsList }) => {
   return (
     <View style={style.container}>
-      {newsList.map((item, index) => (
-        <TouchableOpacity onPress={item.onPress} style={style.item} key={index}>
+      {newsList.map((item, i) => (
+        <TouchableOpacity onPress={item.onPress} style={style.item} key={i}>
           <Text style={style.itemTextDate}>{item.date}</Text>
           <Text style={style.itemTextDesc}>{item.title}</Text>
         </TouchableOpacity>
