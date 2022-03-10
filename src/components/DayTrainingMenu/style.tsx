@@ -2,12 +2,10 @@ import { StyleSheet } from 'react-native'
 import themes from '../../themes'
 
 export default StyleSheet.create({
-  wrapper: {
-    marginHorizontal: 16,
-    marginBottom: 16,
-  },
   container: {
     backgroundColor: themes.colors.lightGray,
+    marginHorizontal: 16,
+    marginBottom: 16,
     paddingTop: 16,
     paddingHorizontal: 8,
     borderRadius: 8,
@@ -31,8 +29,7 @@ export default StyleSheet.create({
   widthFull: {
     width: '100%',
   },
-  flex: {
-    flex: 1,
+  row: {
     flexDirection: 'row',
   },
   spaceBetween: {

@@ -1,13 +1,13 @@
 import React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-import { AppNavigator } from './src/navigators/AppNavigator'
+import { AppStackNavigator } from './src/navigators/AppStackNavigator'
 
 export default () => {
   const queryClient: QueryClient = new QueryClient()
   return (
     <QueryClientProvider client={queryClient}>
-      <AppNavigator />
+      <AppStackNavigator />
     </QueryClientProvider>
   )
 }

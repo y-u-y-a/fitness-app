@@ -3,7 +3,6 @@ import { Text, View } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 
 import { Training } from '../../types'
-import themes from '../../themes'
 import style from './style'
 
 interface Props {

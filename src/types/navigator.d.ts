@@ -1,14 +1,24 @@
-export type AppStackList = {
-  Tab: TabStackList
+export type AppNavigator = {
+  Tab: TabNavigator
   WebView: {
     uri: string
   }
 }
 
-export type TabStackList = {
-  Home?: undefined
-  Training?: undefined
-  Calender?: undefined
-  Settings?: undefined
-  Add?: undefined
+export type TabNavigator = {
+  HomeStack: undefined
+  SettingsStack: undefined
+  TrainingScreen: undefined
+  CalenderScreen: undefined
+  Add: undefined
+}
+
+export type HomeNavigator = {
+  HomeScreen: undefined
+  ProfileScreen: undefined
+}
+
+export type SettingsNavigator = {
+  SettingsScreen: undefined
+  ProfileScreen: undefined
 }

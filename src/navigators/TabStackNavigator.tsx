@@ -3,15 +3,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialIcons } from '@expo/vector-icons'
 
 import themes from '../themes'
-import { TabStackList } from '../types/navigator'
+import { TabNavigator } from '../types/navigator'
 import { screenOptions } from './_screenOptions'
-import { HomeScreen } from '../screens/Home'
+import { HomeStackNavigator } from './HomeStackNavigator'
+import { SettingsStackNavigator } from './SettingsStackNavigator'
 import { TrainingScreen } from '../screens/Training'
-import { SettingsScreen } from '../screens/Settings'
 
 export const TabStackNavigator = () => {
-  const Tab = createBottomTabNavigator<TabStackList>()
-  //
+  const Tab = createBottomTabNavigator<TabNavigator>()
   return (
     <Tab.Navigator
       screenOptions={({ navigation }) => {
@@ -19,16 +18,16 @@ export const TabStackNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="Home" // NOTE: TabStackListの定義を指定
-        component={HomeScreen}
+        name="HomeStack"
+        component={HomeStackNavigator}
         options={{
-          headerTitle: 'ホーム',
+          headerShown: false,
           tabBarLabel: 'ホーム',
           tabBarIcon: ({ color, size }) => <MaterialIcons name="home" color={color} size={size} />,
         }}
       />
       <Tab.Screen
-        name="Training"
+        name="TrainingScreen"
         component={TrainingScreen}
         options={{
           headerTitle: 'トレーニング',
@@ -38,15 +37,15 @@ export const TabStackNavigator = () => {
       />
       <Tab.Screen
         name="Add"
-        component={SettingsScreen}
+        component={TrainingScreen}
         options={{
           tabBarLabel: '',
           tabBarIcon: () => <MaterialIcons name="add-circle" size={48} color={themes.colors.white} style={{ position: 'absolute', top: 2 }} />,
         }}
       />
       <Tab.Screen
-        name="Calender"
-        component={SettingsScreen}
+        name="CalenderScreen"
+        component={TrainingScreen}
         options={{
           headerTitle: 'カレンダー',
           tabBarLabel: 'カレンダー',
@@ -54,10 +53,10 @@ export const TabStackNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Settings"
-        component={SettingsScreen}
+        name="SettingsStack"
+        component={SettingsStackNavigator}
         options={{
-          headerTitle: '設定',
+          headerShown: false,
           tabBarLabel: '設定',
           tabBarIcon: ({ color, size }) => <MaterialIcons name="settings" size={size} color={color} />,
         }}

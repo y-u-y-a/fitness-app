@@ -29,3 +29,17 @@ $ yarn add react-query graphql graphql-request react-query-devtools
 
 - react-native-tab-view
   - URL：https://github.com/satya164/react-native-tab-view
+
+## 仕様
+
+- Tab
+  - Home
+  - Training
+  - Calendar
+  - SettingsStack
+    - Settings
+    - Profile
+    - CalendarSettings
+    - Help
+    - PrivacyPolicy
+- WebView

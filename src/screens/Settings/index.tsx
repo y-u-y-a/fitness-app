@@ -1,23 +1,32 @@
 import React, { VFC } from 'react'
+import { Text, View, TouchableOpacity } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
-import { Text, View } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-import { AppStackList } from '../../types/navigator'
+import { MaterialIcons } from '@expo/vector-icons'
 
+import { SettingsNavigator } from '../../types/navigator'
 import style from './style'
 
 interface Props {
-  navigation: StackNavigationProp<AppStackList>
+  navigation: StackNavigationProp<SettingsNavigator>
 }
 
 export const SettingsScreen: VFC<Props> = ({ navigation }) => {
-  const onPress = () => navigation.goBack()
+  const pageList = [
+    { title: 'プロフィール', onPress: () => navigation.navigate('ProfileScreen') },
+    { title: 'カレンダー設定', onPress: () => alert('') },
+    { title: 'ヘルプ・よくある質問', onPress: () => alert('') },
+    { title: 'プライバシーポリシー', onPress: () => alert('') },
+    { title: 'ログアウト', onPress: () => alert('') },
+  ]
   //
   return (
     <View style={style.container}>
-      <TouchableOpacity onPress={onPress}>
-        <Text style={style.text}> This is settings page.</Text>
-      </TouchableOpacity>
+      {pageList.map(({ title, onPress }, i) => (
+        <TouchableOpacity onPress={onPress} style={style.item} key={i}>
+          <Text style={style.text}>{title}</Text>
+          <MaterialIcons name="keyboard-arrow-right" style={style.icon} />
+        </TouchableOpacity>
+      ))}
     </View>
   )
 }
