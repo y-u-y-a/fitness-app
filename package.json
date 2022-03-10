@@ -36,7 +36,7 @@
     "react-native-tab-view": "^3.1.1",
     "react-native-vector-icons": "^9.1.0",
     "react-native-web": "0.17.1",
-    "react-native-webview": "^11.17.2",
+    "react-native-webview": "11.15.0",
     "react-query": "^3.34.13"
   },
   "devDependencies": {

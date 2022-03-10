@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { VFC, useState } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { ScrollView, useWindowDimensions } from 'react-native'
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view'
@@ -13,7 +13,7 @@ interface Props {
   navigation: StackNavigationProp<AppStackList>
 }
 
-const Scene: React.FC<TrainingMenu[] | TrainingCategory[]> = (list) => {
+const Scene: VFC<TrainingMenu[] | TrainingCategory[]> = (list) => {
   return (
     <ScrollView style={{ backgroundColor: '#fff' }}>
       {list.map(({ name, trainingList }, i) => (
@@ -23,20 +23,20 @@ const Scene: React.FC<TrainingMenu[] | TrainingCategory[]> = (list) => {
   )
 }
 
-export const TrainingScreen: React.FC<Props> = ({ navigation }) => {
+export const TrainingScreen: VFC<Props> = ({ navigation }) => {
   const layout = useWindowDimensions()
   const trainingMenuList = useQueryTrainingMenuList()
   const trainingCategoryList = useQueryTrainingCategoryList()
 
-  const [displayIndex, setDisplayIndex] = React.useState(0)
-  const [routes] = React.useState([
+  const [displayIndex, setDisplayIndex] = useState(0)
+  const routes = [
     { key: 'scene0', title: 'メニュー' },
     { key: 'scene1', title: '種目' },
-  ])
+  ]
   //
   return (
     <TabView
-      navigationState={{ index: displayIndex, routes }}
+      navigationState={{ routes, index: displayIndex }}
       initialLayout={{ width: layout.width }}
       onIndexChange={setDisplayIndex}
       // Tab

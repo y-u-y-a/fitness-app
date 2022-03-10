@@ -3,9 +3,6 @@ import themes from '../../themes'
 
 export default StyleSheet.create({
   container: {
-    marginBottom: 40,
-  },
-  item: {
     flex: 1,
     flexDirection: 'row',
     marginBottom: 1,
@@ -13,11 +10,11 @@ export default StyleSheet.create({
     paddingHorizontal: 16,
     backgroundColor: themes.colors.lightBlue,
   },
-  itemTextDate: {
+  dateText: {
     flex: 1,
     color: themes.colors.linkBlue,
   },
-  itemTextDesc: {
+  descText: {
     flex: 11,
     marginLeft: 8,
     color: themes.colors.linkBlue,

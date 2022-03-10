@@ -10,17 +10,7 @@ const queryConfig = {
   refetchOnWindowFocus: false,
 }
 
-// Get data from  GraphQL server.
-export const useQueryRocketList = () => {
-  const { data, status } = useQuery<Rocket[], Error>({
-    ...queryConfig,
-    queryKey: cacheKey.rocketList, // ここのkeyはcacheの格納場所を識別
-    queryFn: () => request<RocketList>('https://api.spacex.land/graphql', getRocketQuery).then(({ rockets }) => rockets),
-  })
-  // TODO: statusによるエラーハンドリング
-  return data
-}
-
+// 種目一覧を取得
 export const useQueryTrainingList = (): Training[] => {
   return [
     {
@@ -76,6 +66,56 @@ export const useQueryTrainingList = (): Training[] => {
   ]
 }
 
+// 本日のトレーニングメニューを取得
+export const useQueryDayTrainingMenu = (): TrainingMenu => {
+  return {
+    name: '胸・背中のメニュー',
+    trainingList: [
+      {
+        id: 1,
+        name: 'ベンチプレス',
+        repetitionMax: 50,
+        times: 12,
+        weight: 40,
+        latestTimes: 8,
+        latestWeight: 40,
+        category: '胸',
+      },
+      {
+        id: 1,
+        name: 'ベンチプレス',
+        repetitionMax: 50,
+        times: 12,
+        weight: 40,
+        latestTimes: 8,
+        latestWeight: 40,
+        category: '胸',
+      },
+      {
+        id: 1,
+        name: 'ベンチプレス',
+        repetitionMax: 50,
+        times: 12,
+        weight: 40,
+        latestTimes: 8,
+        latestWeight: 40,
+        category: '胸',
+      },
+      {
+        id: 1,
+        name: 'ベンチプレス',
+        repetitionMax: 50,
+        times: 12,
+        weight: 40,
+        latestTimes: 8,
+        latestWeight: 40,
+        category: '胸',
+      },
+    ],
+  }
+}
+
+// 種目一覧をメニューごとにソートして取得
 export const useQueryTrainingMenuList = (): TrainingMenu[] => {
   return [
     {
@@ -216,6 +256,7 @@ export const useQueryTrainingMenuList = (): TrainingMenu[] => {
   ]
 }
 
+// 種目一覧をカテゴリーごとにソートして取得
 export const useQueryTrainingCategoryList = (): TrainingCategory[] => {
   return [
     {
@@ -356,6 +397,7 @@ export const useQueryTrainingCategoryList = (): TrainingCategory[] => {
   ]
 }
 
+// お知らせ一覧を取得
 export const useQueryNewsList = (): News[] => {
   return [
     {
@@ -371,4 +413,15 @@ export const useQueryNewsList = (): News[] => {
       uri: 'https://github.com/',
     },
   ]
+}
+
+// Get data from  GraphQL server.
+export const useQueryRocketList = () => {
+  const { data, status } = useQuery<Rocket[], Error>({
+    ...queryConfig,
+    queryKey: cacheKey.rocketList, // ここのkeyはcacheの格納場所を識別
+    queryFn: () => request<RocketList>('https://api.spacex.land/graphql', getRocketQuery).then(({ rockets }) => rockets),
+  })
+  // TODO: statusによるエラーハンドリング
+  return data
 }

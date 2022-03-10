@@ -1,36 +1,30 @@
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React, { VFC } from 'react'
+import { ScrollView, View } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
 
 import themes from '../../themes'
 import { AppStackList } from '../../types/navigator'
-import { useQueryNewsList, useQueryTrainingList } from '../../hooks/useQuery'
-import { Calendar, DayTraining, NewsList } from '../../components'
+import { useQueryDayTrainingMenu, useQueryNewsList } from '../../hooks/useQuery'
+import { Calendar, DayTrainingMenu, News } from '../../components'
 
 interface Props {
   navigation: StackNavigationProp<AppStackList, 'WebView'>
 }
 
 // From HomeStackNavigator.
-export const HomeScreen: React.FC<Props> = ({ navigation }) => {
-  const dayTraining = {
-    title: '胸・背中の日',
-    menu: useQueryTrainingList(),
-  }
-
-  const newsList = useQueryNewsList().map((item) => {
-    return {
-      title: item.title,
-      date: item.date,
-      onPress: () => navigation.navigate('WebView', { uri: item.uri }),
-    }
-  })
+export const HomeScreen: VFC<Props> = ({ navigation }) => {
+  const dayTrainingMenu = useQueryDayTrainingMenu()
+  const newsList = useQueryNewsList()
   //
   return (
     <ScrollView style={{ backgroundColor: themes.colors.white }}>
       <Calendar style={{ marginBottom: 20 }} />
-      <DayTraining dayTraining={dayTraining} />
-      <NewsList newsList={newsList} />
+      <DayTrainingMenu dayTrainingMenu={dayTrainingMenu} />
+      <View style={{ marginBottom: 40 }}>
+        {newsList.map(({ title, date, uri }, i) => (
+          <News title={title} date={date} onPress={() => navigation.navigate('WebView', { uri })} key={i} />
+        ))}
+      </View>
     </ScrollView>
   )
 }

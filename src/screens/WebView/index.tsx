@@ -6,6 +6,6 @@ import { WebView } from 'react-native-webview'
 
 interface Props extends NativeStackScreenProps<AppStackList, 'WebView'> {}
 
-export const WebViewScreen: React.FC<Props> = ({ route }) => {
+export const WebViewScreen: React.VFC<Props> = ({ route }) => {
   return <WebView source={{ uri: route.params.uri }} />
 }

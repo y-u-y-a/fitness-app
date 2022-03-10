@@ -15,7 +15,7 @@ LocaleConfig.locales.jp = {
   dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
 }
 
-export const Calendar: React.FC<Props> = ({ style }) => {
+export const Calendar: React.VFC<Props> = ({ style }) => {
   const onDayPress = ({ day, month, year }: DateData): void => {
     console.log('selected day >>>>>', day, month, year)
   }

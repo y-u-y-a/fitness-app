@@ -1,5 +1,5 @@
+import React, { VFC } from 'react'
 import { StackNavigationProp } from '@react-navigation/stack'
-import React from 'react'
 import { Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { AppStackList } from '../../types/navigator'
@@ -10,7 +10,7 @@ interface Props {
   navigation: StackNavigationProp<AppStackList>
 }
 
-export const SettingsScreen: React.FC<Props> = ({ navigation }) => {
+export const SettingsScreen: VFC<Props> = ({ navigation }) => {
   const onPress = () => navigation.goBack()
   //
   return (

@@ -1,24 +1,21 @@
-import React from 'react'
+import React, { VFC } from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 
-import { Training } from '../../types'
+import { TrainingMenu } from '../../types'
 import style from './style'
 
 interface Props {
-  dayTraining: {
-    title: string
-    menu: Training[]
-  }
+  dayTrainingMenu: TrainingMenu
 }
 
-export const DayTraining: React.FC<Props> = ({ dayTraining }) => {
+export const DayTrainingMenu: VFC<Props> = ({ dayTrainingMenu }) => {
   return (
     <View style={[style.wrapper, style.container]}>
       <View style={style.title}>
-        <Text>{dayTraining.title}</Text>
+        <Text>{dayTrainingMenu.name}</Text>
       </View>
       <View>
-        {dayTraining.menu.map((item, i) => {
+        {dayTrainingMenu.trainingList.map((item, i) => {
           return (
             <TouchableOpacity onPress={() => console.log(item.name)} style={style.item} key={i}>
               <View style={[style.widthFull, style.flex, style.spaceBetween]}>
