@@ -8,6 +8,13 @@ export interface Training {
   latestWeight: number
 }
 
+export interface News {
+  id: number
+  title: string
+  uri: string
+  date: string
+}
+
 export interface Rocket {
   id: string
   name: string

@@ -3,32 +3,22 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialIcons } from '@expo/vector-icons'
 
 import themes from '../themes'
-import { MainTabStackList } from '../types/navigator'
+import { TabStackList } from '../types/navigator'
+import { screenOptions } from './_screenOptions'
 import { HomeScreen } from '../screens/Home'
 import { SettingsScreen } from '../screens/Settings'
 
-export const MainTabStackNavigator = () => {
-  const Tab = createBottomTabNavigator<MainTabStackList>()
-  const screenOptions = {
-    // Header
-    headerStyle: {
-      backgroundColor: themes.colors.dark,
-    },
-    headerTitleStyle: {
-      color: themes.colors.white,
-    },
-    // Bottom Bar
-    tabBarActiveTintColor: themes.colors.blue,
-    tabBarInactiveTintColor: themes.colors.white,
-    tabBarStyle: {
-      backgroundColor: themes.colors.dark,
-    },
-  }
+export const TabStackNavigator = () => {
+  const Tab = createBottomTabNavigator<TabStackList>()
   //
   return (
-    <Tab.Navigator screenOptions={screenOptions}>
+    <Tab.Navigator
+      screenOptions={({ navigation }) => {
+        return { ...screenOptions(navigation), headerLeft: () => null }
+      }}
+    >
       <Tab.Screen
-        name="Home" // NOTE: MainTabStackListの定義を指定
+        name="Home" // NOTE: TabStackListの定義を指定
         component={HomeScreen}
         options={{
           headerTitle: 'ホーム',

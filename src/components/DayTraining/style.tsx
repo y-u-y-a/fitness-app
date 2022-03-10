@@ -2,46 +2,26 @@ import { StyleSheet } from 'react-native'
 import themes from '../../themes'
 
 export default StyleSheet.create({
-  trainingWrapper: {
+  wrapper: {
     marginHorizontal: 16,
     marginBottom: 16,
   },
-  trainingContainer: {
+  container: {
     backgroundColor: themes.colors.lightGray,
     paddingTop: 16,
     paddingHorizontal: 8,
     borderRadius: 8,
   },
-  trainingTitle: {
+  title: {
     marginBottom: 16,
     paddingLeft: 4,
   },
-  trainingItem: {
+  item: {
     backgroundColor: themes.colors.green,
     marginBottom: 8,
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: 8,
-  },
-  newsContainer: {
-    marginBottom: 40,
-  },
-  newsItem: {
-    flex: 1,
-    flexDirection: 'row',
-    marginBottom: 1,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    backgroundColor: themes.colors.lightBlue,
-  },
-  newsItemTextDate: {
-    flex: 1,
-    color: themes.colors.linkBlue,
-  },
-  newsItemTextDesc: {
-    flex: 11,
-    marginLeft: 8,
-    color: themes.colors.linkBlue,
   },
   // Text
   text: {

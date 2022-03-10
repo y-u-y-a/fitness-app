@@ -1,7 +1,7 @@
 import { request } from 'graphql-request'
 import { useQuery } from 'react-query'
 
-import { Rocket, RocketList, Training } from '../types'
+import { Training, News, Rocket, RocketList } from '../types'
 import { getRocketQuery } from '../queries'
 import { cacheKey } from '../constants'
 
@@ -76,6 +76,23 @@ export const useQueryTrainingList = (): Training[] => {
       weight: 40,
       latestTimes: 8,
       latestWeight: 40,
+    },
+  ]
+}
+
+export const useQueryNewsList = (): News[] => {
+  return [
+    {
+      id: 1,
+      title: 'リリースのお知らせ',
+      date: '1/1',
+      uri: 'https://github.com/',
+    },
+    {
+      id: 2,
+      title: 'システムメンテナンスのお知らせ',
+      date: '2/14',
+      uri: 'https://github.com/',
     },
   ]
 }

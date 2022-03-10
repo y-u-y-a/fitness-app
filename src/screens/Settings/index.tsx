@@ -2,12 +2,12 @@ import { StackNavigationProp } from '@react-navigation/stack'
 import React from 'react'
 import { Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-import { HomeStackList } from '../../types/index.d'
+import { AppStackList } from '../../types/navigator'
 
 import style from './style'
 
 interface Props {
-  navigation: StackNavigationProp<HomeStackList, 'Settings'>
+  navigation: StackNavigationProp<AppStackList>
 }
 
 export const SettingsScreen: React.FC<Props> = ({ navigation }) => {
