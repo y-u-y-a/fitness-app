@@ -13,7 +13,9 @@ export const News: VFC<Props> = ({ title, date, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={style.container}>
       <Text style={style.dateText}>{date}</Text>
-      <Text style={style.descText}>{title}</Text>
+      <Text style={style.descText} numberOfLines={1}>
+        {title}
+      </Text>
     </TouchableOpacity>
   )
 }

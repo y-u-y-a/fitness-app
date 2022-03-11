@@ -1,35 +1,50 @@
 import React, { VFC } from 'react'
-import { Text, TouchableOpacity, View } from 'react-native'
+import { StyleProp, Text, TouchableOpacity, View, ViewStyle } from 'react-native'
+import { TabBarItem } from 'react-native-tab-view'
 
 import { TrainingMenu } from '../../types'
 import style from './style'
 
 interface Props {
+  wrapStyle?: StyleProp<ViewStyle>
   dayTrainingMenu: TrainingMenu
 }
 
-export const DayTrainingMenu: VFC<Props> = ({ dayTrainingMenu }) => {
+export const DayTrainingMenu: VFC<Props> = ({ wrapStyle, dayTrainingMenu }) => {
   return (
-    <View style={style.container}>
-      <View style={style.title}>
-        <Text>{dayTrainingMenu.name}</Text>
-      </View>
-      <View>
-        {dayTrainingMenu.trainingList.map((item, i) => {
-          return (
-            <TouchableOpacity onPress={() => console.log(item.name)} style={style.item} key={i}>
-              <View style={[style.widthFull, style.row, style.spaceBetween]}>
-                <Text style={style.text}>{item.name}</Text>
-                <Text style={style.text}>RM算出</Text>
-              </View>
-              <View style={[style.widthFull, style.row, style.spaceBetween]}>
-                <Text style={style.text}>{`${item.weight}kg（前回${item.latestWeight}kg）`}</Text>
-                <Text style={style.text}>{`${item.times}回（前回${item.latestTimes}回）`}</Text>
-                <Text style={style.text}>{`${item.repetitionMax}kg`}</Text>
-              </View>
-            </TouchableOpacity>
-          )
-        })}
+    <View style={wrapStyle}>
+      <View style={style.container}>
+        <View style={style.title}>
+          <Text>{dayTrainingMenu.name}</Text>
+        </View>
+        <View>
+          {dayTrainingMenu.trainingList.map(({ name, weight, times, latestWeight, latestTimes, repetitionMax }, i) => {
+            return (
+              <TouchableOpacity onPress={() => alert(name)} style={style.item} key={i}>
+                <View style={style.itemHeader}>
+                  <Text style={[style.text12, style.fontBold]}>{name}</Text>
+                  <Text style={[style.text12, style.fontBold]}>RM算出</Text>
+                </View>
+                <View style={style.itemBody}>
+                  <Text>
+                    <Text style={[style.text12, style.fontBold]}>{`${weight}`}</Text>
+                    <Text style={style.text12}> kg</Text>
+                    <Text style={[style.text10, style.textGray]}>{`（前回${latestWeight}kg）`}</Text>
+                  </Text>
+                  <Text>
+                    <Text style={[style.text12, style.fontBold]}>{`${times}`}</Text>
+                    <Text style={style.text12}> 回</Text>
+                    <Text style={[style.text10, style.textGray]}>{`（前回${latestTimes}回）`}</Text>
+                  </Text>
+                  <Text>
+                    {`${repetitionMax}`}
+                    <Text style={style.text12}> kg</Text>
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            )
+          })}
+        </View>
       </View>
     </View>
   )

@@ -3,7 +3,7 @@ import { StyleProp, ViewStyle, View } from 'react-native'
 import { Calendar as RNCalendar, LocaleConfig, DateData } from 'react-native-calendars'
 
 interface Props {
-  style?: StyleProp<ViewStyle>
+  wrapStyle?: StyleProp<ViewStyle>
 }
 
 // TODO: Calenderコンポーネントを切り分ける
@@ -15,13 +15,13 @@ LocaleConfig.locales.jp = {
   dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
 }
 
-export const Calendar: React.VFC<Props> = ({ style }) => {
+export const Calendar: React.VFC<Props> = ({ wrapStyle }) => {
   const onDayPress = ({ day, month, year }: DateData): void => {
     console.log('selected day >>>>>', day, month, year)
   }
   //
   return (
-    <View style={style}>
+    <View style={wrapStyle}>
       <RNCalendar
         monthFormat={'yyyy年 MM月'}
         firstDay={1} // 月曜日始まり=1

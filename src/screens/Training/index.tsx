@@ -4,29 +4,19 @@ import { ScrollView, useWindowDimensions } from 'react-native'
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view'
 
 import { TrainingMenu, TrainingCategory } from '../../types'
-import { AppStackList } from '../../types/navigator'
+import { AppNavigator } from '../../types/navigator'
 import { TrainingList } from '../../components/TrainingList'
 import { useQueryTrainingMenuList, useQueryTrainingCategoryList } from '../../hooks/useQuery'
 import style from './style'
 
 interface Props {
-  navigation: StackNavigationProp<AppStackList>
-}
-
-const Scene: VFC<TrainingMenu[] | TrainingCategory[]> = (list) => {
-  return (
-    <ScrollView style={{ backgroundColor: '#fff' }}>
-      {list.map(({ name, trainingList }, i) => (
-        <TrainingList title={name} trainingList={trainingList} key={i} />
-      ))}
-    </ScrollView>
-  )
+  navigation: StackNavigationProp<AppNavigator>
 }
 
 export const TrainingScreen: VFC<Props> = ({ navigation }) => {
   const layout = useWindowDimensions()
-  const trainingMenuList = useQueryTrainingMenuList()
-  const trainingCategoryList = useQueryTrainingCategoryList()
+  const trainingMenuList: TrainingMenu[] = useQueryTrainingMenuList()
+  const trainingCategoryList: TrainingCategory[] = useQueryTrainingCategoryList()
 
   const [displayIndex, setDisplayIndex] = useState(0)
   const routes = [
@@ -53,8 +43,20 @@ export const TrainingScreen: VFC<Props> = ({ navigation }) => {
       )}
       // Scene
       renderScene={SceneMap({
-        scene0: () => Scene(trainingMenuList),
-        scene1: () => Scene(trainingCategoryList),
+        scene0: () => (
+          <ScrollView style={style.container}>
+            {trainingMenuList.map(({ name, trainingList }, i) => (
+              <TrainingList title={name} trainingList={trainingList} key={i} />
+            ))}
+          </ScrollView>
+        ),
+        scene1: () => (
+          <ScrollView style={style.container}>
+            {trainingCategoryList.map(({ name, trainingList }, i) => (
+              <TrainingList title={name} trainingList={trainingList} key={i} />
+            ))}
+          </ScrollView>
+        ),
       })}
     />
   )

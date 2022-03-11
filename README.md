@@ -33,13 +33,13 @@ $ yarn add react-query graphql graphql-request react-query-devtools
 ## 仕様
 
 - Tab
-  - Home
-  - Training
-  - Calendar
+  - HomeStack
+  - TrainingScreen
+  - CalendarScreen
   - SettingsStack
-    - Settings
-    - Profile
-    - CalendarSettings
-    - Help
-    - PrivacyPolicy
+    - SettingsScreen
+    - ProfileScreen
+    - CalendarSettingsScreen
+    - HelpScreen
+    - PrivacyPolicyScreen
 - WebView

@@ -11,11 +11,12 @@ export default StyleSheet.create({
     backgroundColor: themes.colors.lightBlue,
   },
   dateText: {
-    flex: 1,
+    flex: 2,
     color: themes.colors.linkBlue,
+    fontSize: 14,
   },
   descText: {
-    flex: 11,
+    flex: 10,
     marginLeft: 8,
     color: themes.colors.linkBlue,
   },

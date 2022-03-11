@@ -408,7 +408,7 @@ export const useQueryNewsList = (): News[] => {
     },
     {
       id: 2,
-      title: 'システムメンテナンスのお知らせ',
+      title: '年末年始のシステムメンテナンスのお知らせ',
       date: '2/14',
       uri: 'https://github.com/',
     },

@@ -5,7 +5,6 @@ export default StyleSheet.create({
   container: {
     backgroundColor: themes.colors.lightGray,
     marginHorizontal: 16,
-    marginBottom: 16,
     paddingTop: 16,
     paddingHorizontal: 8,
     borderRadius: 8,
@@ -15,24 +14,46 @@ export default StyleSheet.create({
     paddingLeft: 4,
   },
   item: {
-    backgroundColor: themes.colors.green,
+    backgroundColor: themes.colors.white,
     marginBottom: 8,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
+    padding: 12,
     borderRadius: 8,
   },
+  itemHeader: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 4,
+  },
+  itemBody: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   // Text
+  text10: {
+    fontSize: 10,
+  },
+  text12: {
+    fontSize: 12,
+  },
   text: {
     color: themes.colors.dark,
+    fontSize: 14,
   },
-  // Common
-  widthFull: {
-    width: '100%',
+  text16: {
+    fontSize: 16,
   },
-  row: {
-    flexDirection: 'row',
+  text18: {
+    fontSize: 18,
   },
-  spaceBetween: {
-    justifyContent: 'space-between',
+  text20: {
+    fontSize: 20,
+  },
+  textGray: {
+    color: themes.colors.gray,
+  },
+  fontBold: {
+    fontWeight: 'bold',
   },
 })

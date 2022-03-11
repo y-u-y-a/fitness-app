@@ -2,6 +2,9 @@ import { StyleSheet } from 'react-native'
 import themes from '../../themes'
 
 export default StyleSheet.create({
+  container: {
+    backgroundColor: themes.colors.white,
+  },
   scene: {
     flex: 1,
   },
