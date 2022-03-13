@@ -1,4 +1,5 @@
 import React from 'react'
+import { TouchableOpacity } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialIcons } from '@expo/vector-icons'
 
@@ -14,7 +15,15 @@ export const TabStackNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({ navigation }) => {
-        return { ...screenOptions(navigation), headerLeft: () => null }
+        return {
+          ...screenOptions(navigation),
+          headerLeft: () => null,
+          headerRight: () => (
+            <TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')} style={{ paddingRight: 20 }}>
+              <MaterialIcons name="account-circle" color={themes.colors.white} size={24} />
+            </TouchableOpacity>
+          ),
+        }
       }}
     >
       <Tab.Screen

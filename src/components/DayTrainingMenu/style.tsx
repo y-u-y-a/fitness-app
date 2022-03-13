@@ -13,6 +13,11 @@ export default StyleSheet.create({
     marginBottom: 16,
     paddingLeft: 4,
   },
+  titleText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+
   item: {
     backgroundColor: themes.colors.white,
     marginBottom: 8,
@@ -25,33 +30,23 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 4,
   },
+  itemHeaderText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
   itemBody: {
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   // Text
-  text10: {
-    fontSize: 10,
-  },
-  text12: {
+  textSmall: {
     fontSize: 12,
+    color: themes.colors.gray,
   },
   text: {
-    color: themes.colors.dark,
-    fontSize: 14,
-  },
-  text16: {
     fontSize: 16,
-  },
-  text18: {
-    fontSize: 18,
-  },
-  text20: {
-    fontSize: 20,
-  },
-  textGray: {
-    color: themes.colors.gray,
+    color: themes.colors.dark,
   },
   fontBold: {
     fontWeight: 'bold',

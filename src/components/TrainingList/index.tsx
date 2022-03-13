@@ -4,6 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons'
 
 import { Training } from '../../types'
 import style from './style'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 interface Props {
   title: string
@@ -18,7 +19,7 @@ export const TrainingList: React.VFC<Props> = ({ title, trainingList }) => {
         <MaterialIcons name="add" onPress={() => alert('')} style={style.headerIcon} />
       </View>
       {trainingList.map((item, i) => (
-        <View style={style.item} key={i}>
+        <TouchableOpacity onPress={() => alert('')} style={style.item} key={i}>
           <Text style={style.nameText}>{item.name}</Text>
           <View style={[style.row, style.itemsCenter]}>
             <Text style={style.infoText}>
@@ -27,9 +28,9 @@ export const TrainingList: React.VFC<Props> = ({ title, trainingList }) => {
             <Text style={style.infoText}>
               記録：<Text>{item.times}</Text>回
             </Text>
-            <MaterialIcons name="mode-edit" onPress={() => alert('')} style={style.itemIcon} />
+            <MaterialIcons name="mode-edit" style={style.itemIcon} />
           </View>
-        </View>
+        </TouchableOpacity>
       ))}
     </>
   )

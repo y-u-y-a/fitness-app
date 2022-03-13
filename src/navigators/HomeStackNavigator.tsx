@@ -31,7 +31,7 @@ export const HomeStackNavigator = () => {
         }
       }}
     >
-      <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerTitle: 'ホーム', headerLeft: () => null }} />
+      <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerTitle: process.env.APP_TITLE, headerLeft: () => null }} />
       <Stack.Screen name="ProfileScreen" component={ProfileScreen} options={{ headerTitle: 'プロフィール' }} />
     </Stack.Navigator>
   )
