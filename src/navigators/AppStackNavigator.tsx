@@ -8,8 +8,9 @@ import { screenOptions } from './_screenOptions'
 import { TabStackNavigator } from './TabStackNavigator'
 import { WebViewScreen } from '../screens/WebView'
 
+const Stack = createStackNavigator<AppNavigator>()
+
 export const AppStackNavigator = () => {
-  const Stack = createStackNavigator<AppNavigator>()
   return (
     <NavigationContainer>
       <StatusBar barStyle="light-content" />
