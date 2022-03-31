@@ -5,14 +5,14 @@ import style from './style'
 
 interface Props {
   title: string
-  date: string
+  createdAt: string
   onPress: () => void
 }
 
-export const News: VFC<Props> = ({ title, date, onPress }) => {
+export const News: VFC<Props> = ({ title, createdAt, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={style.container}>
-      <Text style={style.dateText}>{date}</Text>
+      <Text style={style.dateText}>{createdAt}</Text>
       <Text style={style.descText} numberOfLines={1}>
         {title}
       </Text>

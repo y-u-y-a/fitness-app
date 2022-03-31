@@ -6,8 +6,8 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view'
 import { TrainingMenu, TrainingCategory } from '../../types'
 import { AppNavigator } from '../../types/navigator'
 import { TrainingList } from '../../components/TrainingList'
-import { useQueryTrainingMenuList, useQueryTrainingCategoryList } from '../../hooks/useQuery'
 import style from './style'
+import { useQueryTrainingCategoryList, useQueryTrainingMenuList } from '../../hooks/useTrainingQuery'
 
 interface Props {
   navigation: StackNavigationProp<AppNavigator>

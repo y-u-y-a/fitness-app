@@ -1,16 +1,6 @@
-import { request } from 'graphql-request'
-import { useQuery } from 'react-query'
+import { Training, TrainingMenu, TrainingCategory } from '../types'
 
-import { Training, News, Rocket, RocketList, TrainingMenu, TrainingCategory } from '../types'
-import { getRocketQuery } from '../queries'
-import { cacheKey } from '../constants'
-
-const queryConfig = {
-  staleTime: 10, // 10ms以降で再度fetchした場合、cacheを使用せず再取得
-  refetchOnWindowFocus: false,
-}
-
-// 種目一覧を取得
+// 種目一覧
 export const useQueryTrainingList = (): Training[] => {
   return [
     {
@@ -66,7 +56,7 @@ export const useQueryTrainingList = (): Training[] => {
   ]
 }
 
-// 本日のトレーニングメニューを取得
+// 本日のトレーニングメニュー
 export const useQueryDayTrainingMenu = (): TrainingMenu => {
   return {
     name: '胸・背中のメニュー',
@@ -115,7 +105,7 @@ export const useQueryDayTrainingMenu = (): TrainingMenu => {
   }
 }
 
-// 種目一覧をメニューごとにソートして取得
+// 種目一覧をメニューごとにソート
 export const useQueryTrainingMenuList = (): TrainingMenu[] => {
   return [
     {
@@ -256,7 +246,7 @@ export const useQueryTrainingMenuList = (): TrainingMenu[] => {
   ]
 }
 
-// 種目一覧をカテゴリーごとにソートして取得
+// 種目一覧をカテゴリーごとにソート
 export const useQueryTrainingCategoryList = (): TrainingCategory[] => {
   return [
     {
@@ -395,33 +385,4 @@ export const useQueryTrainingCategoryList = (): TrainingCategory[] => {
       ],
     },
   ]
-}
-
-// お知らせ一覧を取得
-export const useQueryNewsList = (): News[] => {
-  return [
-    {
-      id: 1,
-      title: 'リリースのお知らせ',
-      date: '1/1',
-      uri: 'https://github.com/',
-    },
-    {
-      id: 2,
-      title: '年末年始のシステムメンテナンスのお知らせ',
-      date: '2/14',
-      uri: 'https://github.com/',
-    },
-  ]
-}
-
-// Get data from  GraphQL server.
-export const useQueryRocketList = () => {
-  const { data, status } = useQuery<Rocket[], Error>({
-    ...queryConfig,
-    queryKey: cacheKey.rocketList, // ここのkeyはcacheの格納場所を識別
-    queryFn: () => request<RocketList>('https://api.spacex.land/graphql', getRocketQuery).then(({ rockets }) => rockets),
-  })
-  // TODO: statusによるエラーハンドリング
-  return data
 }

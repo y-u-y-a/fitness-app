@@ -1,13 +1,12 @@
+import { ApolloProvider } from '@apollo/client'
 import React from 'react'
-import { QueryClient, QueryClientProvider } from 'react-query'
-
+import { client } from './src/libs/apolloClient'
 import { AppStackNavigator } from './src/navigators/AppStackNavigator'
 
 export default () => {
-  const queryClient: QueryClient = new QueryClient()
   return (
-    <QueryClientProvider client={queryClient}>
+    <ApolloProvider client={client}>
       <AppStackNavigator />
-    </QueryClientProvider>
+    </ApolloProvider>
   )
 }
