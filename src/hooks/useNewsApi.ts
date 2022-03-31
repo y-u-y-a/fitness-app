@@ -21,7 +21,7 @@ export const useNewsMutation = () => {
       cache.modify({
         fields: {
           news(existingItemList, { readField }) {
-            return existingItemList.filter((item: any) => delete_news_by_pk.id !== readField('id', item))
+            return existingItemList.filter((item: any) => delete_news_by_pk.uuid !== readField('uuid', item))
           },
         },
       })
@@ -30,6 +30,6 @@ export const useNewsMutation = () => {
   //
   return {
     insertNewsOne: (params: { title: string; content: string }) => insertNewsOne({ variables: params }),
-    deleteNews: (params: { id: string }) => deleteNews({ variables: params }),
+    deleteNews: (params: { uuid: string }) => deleteNews({ variables: params }),
   }
 }

@@ -1,6 +1,6 @@
 /** 種目 */
 export type Training = {
-  id: number
+  uuid: string
   name: string
   repetitionMax: number
   times: number
@@ -24,7 +24,7 @@ export type TrainingCategory = {
 
 /** お知らせ */
 export type News = {
-  id: string
+  uuid: string
   title: string
   content: string
   createdAt: string

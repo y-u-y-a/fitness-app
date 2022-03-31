@@ -6,7 +6,7 @@ import { GET_NEWS } from '../gql/queries/newsQuery'
 import { Training, TrainingCategory, TrainingMenu } from '../types/domain'
 
 export const useAppState = () => {
-  // news: お知らせ一覧
+  // newsList: お知らせ一覧
   const fetchNewsList = () => {
     const { data: newsData } = useQuery<NewsResponse>(GET_NEWS)
     return (
@@ -21,7 +21,7 @@ export const useAppState = () => {
   // trainingList: 種目一覧
   const trainingList: Training[] = [...Array(8)].map((_, i) => {
     return {
-      id: i + 1,
+      uuid: String(i + 1),
       name: 'ベンチプレス',
       repetitionMax: 50,
       times: 12,
@@ -36,7 +36,7 @@ export const useAppState = () => {
     name: '胸の日',
     trainingList: [...Array(4)].map((_, i) => {
       return {
-        id: i + 1,
+        uuid: String(i + 1),
         name: 'ベンチプレス',
         repetitionMax: 50,
         times: 12,
@@ -53,7 +53,7 @@ export const useAppState = () => {
       name,
       trainingList: [...Array(4)].map((_, i) => {
         return {
-          id: i + 1,
+          uuid: String(i + 1),
           name: 'ベンチプレス',
           repetitionMax: 50,
           times: 12,
@@ -71,7 +71,7 @@ export const useAppState = () => {
       name,
       trainingList: [...Array(4)].map((_, i) => {
         return {
-          id: i + 1,
+          uuid: String(i + 1),
           name: 'ベンチプレス',
           repetitionMax: 50,
           times: 12,

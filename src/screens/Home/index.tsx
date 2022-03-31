@@ -15,16 +15,15 @@ type Props = {
 export const HomeScreen: VFC<Props> = ({ navigation }) => {
   const { newsList, dayTrainingMenu } = useAppState()
   const { insertNewsOne, deleteNews } = useNewsMutation()
-  // TODO: 昨日としては不要なので削除する
-  const handleInsertNews = async () => {
+
+  const handleUpdateNews = async (uuid: string) => {
     const params = {
       title: '今日は雨ですです。',
       content: '深夜のテストです。テストです。',
     }
-    await insertNewsOne(params)
-  }
-  const handleDeleteNews = async (id: string) => {
-    await deleteNews({ id })
+    // TODO: insert後データがロードされない...
+    // await insertNewsOne(params)
+    await deleteNews({ uuid })
     return
   }
   //
@@ -34,8 +33,8 @@ export const HomeScreen: VFC<Props> = ({ navigation }) => {
       <DayTrainingMenu dayTrainingMenu={dayTrainingMenu} wrapStyle={{ marginBottom: 20 }} />
       {newsList && (
         <View style={{ marginBottom: 40 }}>
-          {newsList.map(({ id, title, createdAt }, i) => (
-            <News id={id} title={title} createdAt={createdAt} updateNews={handleDeleteNews} key={i} />
+          {newsList.map(({ uuid, title, createdAt }) => (
+            <News uuid={uuid} title={title} createdAt={createdAt} updateNews={handleUpdateNews} key={uuid} />
           ))}
         </View>
       )}
