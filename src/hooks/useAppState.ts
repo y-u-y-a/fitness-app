@@ -7,7 +7,7 @@ import { Training, TrainingCategory, TrainingMenu } from '../types/domain'
 
 export const useAppState = () => {
   // news: お知らせ一覧
-  const fetchNews = () => {
+  const fetchNewsList = () => {
     const { data: newsData } = useQuery<NewsResponse>(GET_NEWS)
     return (
       newsData?.news.map((item) => ({
@@ -17,7 +17,7 @@ export const useAppState = () => {
       })) ?? []
     )
   }
-  const newsList = fetchNews()
+  const newsList = fetchNewsList()
   // trainingList: 種目一覧
   const trainingList: Training[] = [...Array(8)].map((_, i) => {
     return {
