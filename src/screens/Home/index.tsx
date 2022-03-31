@@ -4,37 +4,27 @@ import { StackNavigationProp } from '@react-navigation/stack'
 
 import themes from '../../themes'
 import { AppNavigator } from '../../types/navigator'
-import { useNewsQuery } from '../../hooks/useNewsQuery'
+import { useAppState } from '../../hooks/useNewsQuery'
 import { useNewsMutation } from '../../hooks/useNewsMutation'
-import { useQueryDayTrainingMenu } from '../../hooks/useTrainingQuery'
 import { Calendar, DayTrainingMenu, News } from '../../components'
 
-interface Props {
+type Props = {
   navigation: StackNavigationProp<AppNavigator, 'WebView'>
 }
 
 export const HomeScreen: VFC<Props> = ({ navigation }) => {
-  const dayTrainingMenu = useQueryDayTrainingMenu()
-  const newsList = useNewsQuery()
+  const { newsList, dayTrainingMenu } = useAppState()
   const { insertNewsOne, deleteNews } = useNewsMutation()
-  //
+  // TODO: 昨日としては不要なので削除する
   const handleInsertNews = async () => {
     const params = {
       title: '今日は雨ですです。',
       content: '深夜のテストです。テストです。',
     }
-    try {
-      await insertNewsOne(params)
-    } catch (err) {
-      console.log(err)
-    }
+    await insertNewsOne(params)
   }
   const handleDeleteNews = async () => {
-    try {
-      await deleteNews({ id: 'f8173a07-a3f8-4d74-b3ca-0ba72e8c7a5f' })
-    } catch (err) {
-      console.log(err)
-    }
+    await deleteNews({ id: 'f8173a07-a3f8-4d74-b3ca-0ba72e8c7a5f' })
   }
 
   //

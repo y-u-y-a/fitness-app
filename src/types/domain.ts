@@ -1,4 +1,5 @@
-export interface Training {
+/** 種目 */
+export type Training = {
   id: number
   name: string
   repetitionMax: number
@@ -8,22 +9,24 @@ export interface Training {
   latestWeight: number
   category: string
 }
-export interface TrainingMenu {
+
+/** トレーニングメニュー */
+export type TrainingMenu = {
   name: string
   trainingList: Training[]
 }
-export interface TrainingCategory {
+
+/** トレーニングカテゴリー */
+export type TrainingCategory = {
   name: string
   trainingList: Training[]
 }
-export interface News {
-  id: number
+
+/** お知らせ */
+export type News = {
+  id: string
   title: string
   content: string
   createdAt: string
-  uri?: string
-}
-
-export interface NewsRes {
-  news: News[]
+  updatedAt: string
 }

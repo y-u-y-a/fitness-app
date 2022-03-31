@@ -10,8 +10,8 @@ export const useNewsMutation = () => {
       const cacheId: any = cache.identify(insert_news_one)
       cache.modify({
         fields: {
-          news(existingNews, { toReference }) {
-            return [toReference(cacheId), ...existingNews]
+          news(existingItemList, { toReference }) {
+            return [toReference(cacheId), ...existingItemList]
           },
         },
       })
@@ -24,8 +24,8 @@ export const useNewsMutation = () => {
     update(cache, { data: { delete_news_by_pk } }) {
       cache.modify({
         fields: {
-          news(existingNews, { readField }) {
-            return existingNews.filter((news: any) => delete_news_by_pk.id !== readField('id', news))
+          news(existingItemList, { readField }) {
+            return existingItemList.filter((item: any) => delete_news_by_pk.id !== readField('id', item))
           },
         },
       })

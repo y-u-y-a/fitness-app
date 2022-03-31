@@ -3,7 +3,7 @@ import { TouchableOpacity, Text } from 'react-native'
 
 import style from './style'
 
-interface Props {
+type Props = {
   title: string
   createdAt: string
   onPress: () => void

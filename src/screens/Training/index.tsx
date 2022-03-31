@@ -3,20 +3,19 @@ import { StackNavigationProp } from '@react-navigation/stack'
 import { ScrollView, useWindowDimensions } from 'react-native'
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view'
 
-import { TrainingMenu, TrainingCategory } from '../../types'
+import { TrainingMenu, TrainingCategory } from '../../types/domain'
 import { AppNavigator } from '../../types/navigator'
 import { TrainingList } from '../../components/TrainingList'
 import style from './style'
-import { useQueryTrainingCategoryList, useQueryTrainingMenuList } from '../../hooks/useTrainingQuery'
+import { useAppState } from '../../hooks/useNewsQuery'
 
-interface Props {
+type Props = {
   navigation: StackNavigationProp<AppNavigator>
 }
 
 export const TrainingScreen: VFC<Props> = ({ navigation }) => {
   const layout = useWindowDimensions()
-  const trainingMenuList: TrainingMenu[] = useQueryTrainingMenuList()
-  const trainingCategoryList: TrainingCategory[] = useQueryTrainingCategoryList()
+  const { trainingListSortByMenu, trainingListSortByCategory } = useAppState()
 
   const [displayIndex, setDisplayIndex] = useState(0)
   const routes = [
@@ -45,14 +44,14 @@ export const TrainingScreen: VFC<Props> = ({ navigation }) => {
       renderScene={SceneMap({
         scene0: () => (
           <ScrollView style={style.container}>
-            {trainingMenuList.map(({ name, trainingList }, i) => (
+            {trainingListSortByMenu.map(({ name, trainingList }, i) => (
               <TrainingList title={name} trainingList={trainingList} key={i} />
             ))}
           </ScrollView>
         ),
         scene1: () => (
           <ScrollView style={style.container}>
-            {trainingCategoryList.map(({ name, trainingList }, i) => (
+            {trainingListSortByCategory.map(({ name, trainingList }, i) => (
               <TrainingList title={name} trainingList={trainingList} key={i} />
             ))}
           </ScrollView>

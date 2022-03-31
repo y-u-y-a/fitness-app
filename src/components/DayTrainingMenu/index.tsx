@@ -2,10 +2,10 @@ import React, { VFC } from 'react'
 import { StyleProp, Text, TouchableOpacity, View, ViewStyle } from 'react-native'
 import { TabBarItem } from 'react-native-tab-view'
 
-import { TrainingMenu } from '../../types'
+import { TrainingMenu } from '../../types/domain'
 import style from './style'
 
-interface Props {
+type Props = {
   wrapStyle?: StyleProp<ViewStyle>
   dayTrainingMenu: TrainingMenu
 }

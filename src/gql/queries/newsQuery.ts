@@ -7,6 +7,7 @@ export const GET_NEWS = gql`
       title
       content
       createdAt
+      updatedAt
     }
   }
 `
