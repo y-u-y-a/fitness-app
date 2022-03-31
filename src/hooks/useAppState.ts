@@ -1,4 +1,5 @@
 import { useQuery } from '@apollo/client'
+import dayjs from 'dayjs'
 
 import { NewsResponse } from '../types/response'
 import { GET_NEWS } from '../gql/queries/newsQuery'
@@ -6,7 +7,17 @@ import { Training, TrainingCategory, TrainingMenu } from '../types/domain'
 
 export const useAppState = () => {
   // news: お知らせ一覧
-  const { data } = useQuery<NewsResponse>(GET_NEWS)
+  const fetchNews = () => {
+    const { data: newsData } = useQuery<NewsResponse>(GET_NEWS)
+    return (
+      newsData?.news.map((item) => ({
+        ...item,
+        createdAt: dayjs(item.createdAt).format('MM/DD'),
+        updatedAt: dayjs(item.updatedAt).format('MM/DD'),
+      })) ?? []
+    )
+  }
+  const newsList = fetchNews()
   // trainingList: 種目一覧
   const trainingList: Training[] = [...Array(8)].map((_, i) => {
     return {
@@ -73,5 +84,5 @@ export const useAppState = () => {
     }
   })
   //
-  return { newsList: data?.news ?? [], trainingList, dayTrainingMenu, trainingListSortByMenu, trainingListSortByCategory }
+  return { newsList, trainingList, dayTrainingMenu, trainingListSortByMenu, trainingListSortByCategory }
 }

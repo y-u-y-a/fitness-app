@@ -7,7 +7,7 @@ import { TrainingMenu, TrainingCategory } from '../../types/domain'
 import { AppNavigator } from '../../types/navigator'
 import { TrainingList } from '../../components/TrainingList'
 import style from './style'
-import { useAppState } from '../../hooks/useNewsQuery'
+import { useAppState } from '../../hooks/useAppState'
 
 type Props = {
   navigation: StackNavigationProp<AppNavigator>

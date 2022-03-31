@@ -4,8 +4,8 @@ import { StackNavigationProp } from '@react-navigation/stack'
 
 import themes from '../../themes'
 import { AppNavigator } from '../../types/navigator'
-import { useAppState } from '../../hooks/useNewsQuery'
-import { useNewsMutation } from '../../hooks/useNewsMutation'
+import { useAppState } from '../../hooks/useAppState'
+import { useNewsMutation } from '../../hooks/useNewsApi'
 import { Calendar, DayTrainingMenu, News } from '../../components'
 
 type Props = {
@@ -23,10 +23,10 @@ export const HomeScreen: VFC<Props> = ({ navigation }) => {
     }
     await insertNewsOne(params)
   }
-  const handleDeleteNews = async () => {
-    await deleteNews({ id: 'f8173a07-a3f8-4d74-b3ca-0ba72e8c7a5f' })
+  const handleDeleteNews = async (id: string) => {
+    await deleteNews({ id })
+    return
   }
-
   //
   return (
     <ScrollView style={{ backgroundColor: themes.colors.white }}>
@@ -34,8 +34,8 @@ export const HomeScreen: VFC<Props> = ({ navigation }) => {
       <DayTrainingMenu dayTrainingMenu={dayTrainingMenu} wrapStyle={{ marginBottom: 20 }} />
       {newsList && (
         <View style={{ marginBottom: 40 }}>
-          {newsList.map(({ title, createdAt }, i) => (
-            <News title={title} createdAt={createdAt} onPress={handleInsertNews} key={i} />
+          {newsList.map(({ id, title, createdAt }, i) => (
+            <News id={id} title={title} createdAt={createdAt} updateNews={handleDeleteNews} key={i} />
           ))}
         </View>
       )}
