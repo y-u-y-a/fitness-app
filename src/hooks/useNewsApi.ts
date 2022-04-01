@@ -1,7 +1,7 @@
 import { useMutation } from '@apollo/client'
 import { INSERT_NEWS_ONE, DELETE_NEWS } from '../gql/mutations/newsMutation'
 
-export const useNewsMutation = () => {
+export const useNewsApi = () => {
   /** Insert a News */
   const [insertNewsOne] = useMutation(INSERT_NEWS_ONE, {
     update(cache, { data: { insert_news_one } }) {

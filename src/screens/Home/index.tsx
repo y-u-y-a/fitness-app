@@ -5,7 +5,7 @@ import { StackNavigationProp } from '@react-navigation/stack'
 import themes from '../../themes'
 import { AppNavigator } from '../../types/navigator'
 import { useAppState } from '../../hooks/useAppState'
-import { useNewsMutation } from '../../hooks/useNewsApi'
+import { useNewsApi } from '../../hooks/useNewsApi'
 import { Calendar, DayTrainingMenu, News } from '../../components'
 
 type Props = {
@@ -14,17 +14,20 @@ type Props = {
 
 export const HomeScreen: VFC<Props> = ({ navigation }) => {
   const { newsList, dayTrainingMenu } = useAppState()
-  const { insertNewsOne, deleteNews } = useNewsMutation()
+  const { insertNewsOne, deleteNews } = useNewsApi()
 
   const handleUpdateNews = async (uuid: string) => {
     const params = {
-      title: '今日は雨ですです。',
-      content: '深夜のテストです。テストです。',
+      title: '今日はテストのお知らせです。',
+      content: 'これはテスト用のテキスト本文です。',
     }
-    // TODO: insert後データがロードされない...
-    // await insertNewsOne(params)
-    await deleteNews({ uuid })
-    return
+    try {
+      // TODO: insert後データがロードされない...
+      uuid === '3c105af2-73df-4eed-8004-b4a00667fbe4' ? await insertNewsOne(params) : await deleteNews({ uuid })
+      return
+    } catch (err) {
+      console.log(err)
+    }
   }
   //
   return (
