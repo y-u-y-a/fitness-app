@@ -7,3 +7,5 @@ ios:
 	yarn ios
 android:
 	yarn android
+codegen:
+	yarn codegen

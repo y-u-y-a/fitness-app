@@ -1,0 +1,18 @@
+{
+  "overwrite": true,
+  "generates": {
+    "./src/types/generated.ts": {
+      "schema": [
+        {
+          "[API_URL]": {
+            "headers": {
+              "x-hasura-admin-secret": "[HASURA_GRAPHQL_ADMIN_SECRET]"
+            }
+          }
+        }
+      ],
+      "documents": ["./src/gql/**/*.ts"],
+      "plugins": ["typescript", "typescript-operations", "typescript-react-apollo"]
+    }
+  }
+}

@@ -1,22 +1,27 @@
 import { useMutation } from '@apollo/client'
-import { INSERT_NEWS_ONE, DELETE_NEWS } from '../gql/mutations/newsMutation'
+import { INSERT_NEWS, DELETE_NEWS } from '../gql/mutations/newsMutation'
+import { GET_NEWS } from '../gql/queries/newsQuery'
+import { DeleteNewsMutation, InsertNewsMutation } from '../types/generated'
 
 export const useNewsApi = () => {
   /** Insert a News */
-  const [insertNewsOne] = useMutation(INSERT_NEWS_ONE, {
-    update(cache, { data: { insert_news_one } }) {
-      const cacheId: any = cache.identify(insert_news_one)
-      cache.modify({
-        fields: {
-          news(existingItemList, { toReference }) {
-            return [toReference(cacheId), ...existingItemList]
-          },
-        },
-      })
-    },
+  const [insertNews] = useMutation<InsertNewsMutation>(INSERT_NEWS, {
+    // update(cache, { data }) {
+    //   // Mutationのレスポンス
+    //   const newData = data?.insert_news_one
+    //   // キャッシュを取得？
+    //   const existingData: any = cache.readQuery({ query: GET_NEWS })
+    //   // キャッシュを更新？
+    //   if (newData && existingData) {
+    //     cache.writeQuery({
+    //       query: GET_NEWS,
+    //       data: { tasks: [...existingData?.tasks, newData] },
+    //     })
+    //   }
+    // },
   })
   /** Delete a News */
-  const [deleteNews] = useMutation(DELETE_NEWS, {
+  const [deleteNews] = useMutation<DeleteNewsMutation>(DELETE_NEWS, {
     update(cache, { data: { delete_news_by_pk } }) {
       cache.modify({
         fields: {
@@ -29,7 +34,7 @@ export const useNewsApi = () => {
   })
   //
   return {
-    insertNewsOne: (params: { title: string; content: string }) => insertNewsOne({ variables: params }),
+    insertNews: (params: { title: string; content: string }) => insertNews({ variables: params }),
     deleteNews: (params: { uuid: string }) => deleteNews({ variables: params }),
   }
 }

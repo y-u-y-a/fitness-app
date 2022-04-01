@@ -1,12 +1,25 @@
-import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client'
+import { ApolloClient, HttpLink, InMemoryCache, NormalizedCacheObject } from '@apollo/client'
 
-const link = createHttpLink({
-  uri: process.env.API_URL ?? '',
-  headers: {
-    'x-hasura-admin-secret': process.env.HASURA_GRAPHQL_ADMIN_SECRET ?? '',
-  },
-})
+let apolloClient: ApolloClient<NormalizedCacheObject> | undefined
 
-const cache = new InMemoryCache()
+const createApolloClient = () => {
+  return new ApolloClient({
+    ssrMode: typeof window === 'undefined',
+    link: new HttpLink({
+      uri: process.env.API_URL,
+      headers: {
+        'x-hasura-admin-secret': process.env.HASURA_GRAPHQL_ADMIN_SECRET,
+      },
+    }),
+    cache: new InMemoryCache(),
+  })
+}
+export const initializeApollo = (initialState = null) => {
+  const _apolloClient = apolloClient ?? createApolloClient()
+  // For SSG and SSR always create a new Apollo Client
+  if (typeof window === 'undefined') return _apolloClient
+  // Create the Apollo Client once in the client
+  if (!apolloClient) apolloClient = _apolloClient
 
-export const client = new ApolloClient({ link, cache })
+  return _apolloClient
+}

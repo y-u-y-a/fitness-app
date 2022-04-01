@@ -14,7 +14,7 @@ type Props = {
 
 export const HomeScreen: VFC<Props> = ({ navigation }) => {
   const { newsList, dayTrainingMenu } = useAppState()
-  const { insertNewsOne, deleteNews } = useNewsApi()
+  const { insertNews, deleteNews } = useNewsApi()
 
   const handleUpdateNews = async (uuid: string) => {
     const params = {
@@ -23,7 +23,7 @@ export const HomeScreen: VFC<Props> = ({ navigation }) => {
     }
     try {
       // TODO: insert後データがロードされない...
-      uuid === '3c105af2-73df-4eed-8004-b4a00667fbe4' ? await insertNewsOne(params) : await deleteNews({ uuid })
+      uuid === '3c105af2-73df-4eed-8004-b4a00667fbe4' ? await insertNews(params) : await deleteNews({ uuid })
       return
     } catch (err) {
       console.log(err)
