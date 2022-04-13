@@ -3,16 +3,17 @@ import { TouchableOpacity, Text } from 'react-native'
 
 import style from './style'
 
-interface Props {
+type Props = {
+  uuid: string
   title: string
-  date: string
-  onPress: () => void
+  createdAt: string
+  updateNews: (uuid: string) => void
 }
 
-export const News: VFC<Props> = ({ title, date, onPress }) => {
+export const News: VFC<Props> = ({ uuid, title, createdAt, updateNews }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={style.container}>
-      <Text style={style.dateText}>{date}</Text>
+    <TouchableOpacity onPress={() => updateNews(uuid)} style={style.container}>
+      <Text style={style.dateText}>{createdAt}</Text>
       <Text style={style.descText} numberOfLines={1}>
         {title}
       </Text>

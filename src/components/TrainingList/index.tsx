@@ -2,11 +2,11 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 
-import { Training } from '../../types'
+import { Training } from '../../types/domain'
 import style from './style'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-interface Props {
+type Props = {
   title: string
   trainingList: Training[]
 }

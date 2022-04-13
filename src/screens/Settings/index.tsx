@@ -6,7 +6,7 @@ import { MaterialIcons } from '@expo/vector-icons'
 import { SettingsNavigator } from '../../types/navigator'
 import style from './style'
 
-interface Props {
+type Props = {
   navigation: StackNavigationProp<SettingsNavigator>
 }
 

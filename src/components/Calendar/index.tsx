@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleProp, ViewStyle, View } from 'react-native'
 import { Calendar as RNCalendar, LocaleConfig, DateData } from 'react-native-calendars'
 
-interface Props {
+type Props = {
   wrapStyle?: StyleProp<ViewStyle>
 }
 
